@@ -174,7 +174,7 @@ const TableList: React.FC = () => {
       valueType: 'index',
     },
     {
-      title: '接口名称',
+      title: 'Name',
       dataIndex: 'name',
       valueType: 'text',
       formItemProps: {
@@ -184,105 +184,121 @@ const TableList: React.FC = () => {
       }
     },
     {
-      title: '描述',
+      title: 'Description',
       dataIndex: 'description',
       valueType: 'textarea',
     },
     {
-      title: '请求方法',
+      title: 'Method',
       dataIndex: 'method',
       valueType: 'text',
     },
     {
-      title: 'url',
+      title: 'URL',
       dataIndex: 'url',
       valueType: 'text',
     },
     {
-      title: '请求参数',
+      title: 'Request Params',
       dataIndex: 'requestParams',
       valueType: 'jsonCode',
     },
     {
-      title: '请求头',
+      title: 'Request Header',
       dataIndex: 'requestHeader',
       valueType: 'jsonCode',
     },
     {
-      title: '响应头',
+      title: 'Response Header',
       dataIndex: 'responseHeader',
       valueType: 'jsonCode',
     },
     {
-      title: '状态',
+      title: 'Status',
       dataIndex: 'status',
       hideInForm: true,
       valueEnum: {
         0: {
-          text: '关闭',
+          text: 'Close',
           status: 'Default',
         },
         1: {
-          text: '开启',
+          text: 'Open',
           status: 'Processing',
         },
       },
     },
     {
-      title: '创建时间',
+      title: 'Creation Time',
       dataIndex: 'createTime',
       valueType: 'dateTime',
       hideInForm: true,
     },
     {
-      title: '更新时间',
+      title: 'Update Time',
       dataIndex: 'updateTime',
       valueType: 'dateTime',
       hideInForm: true,
     },
     {
-      title: '操作',
+      title: 'Option',
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => [
-        <a
+        <Button
           key="config"
           onClick={() => {
             handleUpdateModalOpen(true);
             setCurrentRow(record);
           }}
         >
-          修改
-        </a>,
+          Modify
+        </Button>,
+        // <a
+        //   key="config"
+        //   onClick={() => {
+        //     handleUpdateModalOpen(true);
+        //     setCurrentRow(record);
+        //   }}
+        // >
+        //   Modify
+        // </a>,
         record.status === 0 ?
-          <a
+          <Button
             key="config"
             onClick={() => {
               handleOnline(record);
             }}
           >
-            发布
-          </a> : null,
+            Online
+          </Button> : null,
+          // <a
+          //   key="config"
+          //   onClick={() => {
+          //     handleOnline(record);
+          //   }}
+          // >
+          //   Online
+          // </a> : null,
         record.status === 1 ?
           <Button
-            type="text"
+
             danger
             key="config"
             onClick={() => {
               handleOffline(record);
             }}
           >
-            下线
+            Offline
           </Button> : null,
         <Button
-          type="text"
           danger
           key="config"
           onClick={() => {
             handleRemove(record);
           }}
         >
-          删除
+          Delete
         </Button>
       ],
     },

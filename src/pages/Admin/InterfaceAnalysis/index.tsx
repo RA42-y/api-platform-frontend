@@ -35,7 +35,7 @@ const InterfaceAnalysis: React.FC = () => {
 
   const option = {
     title: {
-      text: '调用次数最多的接口TOP3',
+      text: 'Top 3 most invoked APIs',
       left: 'center',
     },
     tooltip: {

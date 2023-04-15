@@ -32,7 +32,7 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <PageContainer title="在线接口开放平台">
+    <PageContainer title="Interfaces">
       <List
         className="my-list"
         loading={loading}
@@ -41,7 +41,7 @@ const Index: React.FC = () => {
         renderItem={(item) => {
           const apiLink = `/interface_info/${item.id}`;
           return (
-            <List.Item actions={[<a key={item.id} href={apiLink}>查看</a>]}>
+            <List.Item actions={[<a key={item.id} href={apiLink}>View</a>]}>
               <List.Item.Meta
                 title={<a href={apiLink}>{item.name}</a>}
                 description={item.description}
@@ -52,7 +52,7 @@ const Index: React.FC = () => {
         pagination={{
           // eslint-disable-next-line @typescript-eslint/no-shadow
           showTotal(total: number) {
-            return '总数：' + total;
+            return 'Total：' + total;
           },
           pageSize: 5,
           total,
